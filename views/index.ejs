@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chat room</title>
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/css/zoom.css"/>
+</head>
+<body>
+<div class="main">
+    <div data-page="login">
+        <div class="login-input">
+            <input type="text" id="login-name" placeholder="input you name"/>
+            <a href="javascript:;" id="login" class="btn btn-primary btn-block">submit</a>
+        </div>
+        <a href="/login/github"><span class="fa fa-github" style="font-size: 80px;"></span></a>
+    </div>
+    <div data-page="chat">
+        <ul class="chat-list">
+        </ul>
+        <div class="send-block">
+            <div>
+                <a href="javascript:;" class="fa fa-smile-o con-btn" id="emoji-btn" data-send="emoji"></a>
+                <a href="javascript:;" class="fa fa-image con-btn" id="img-btn" data-send="img"></a>
+                <a href="javascript:;" class="fa fa-music con-btn" id="music-btn" data-send="music"></a>
+                <div id="emoji-block" class="emoji-block" data-block></div>
+                <div id="img-block" class="img-block" data-block>
+                    <input id="img-url" placeholder="贴上你的图片的地址" type="url" required/>
+                    <a href="javascript:;" class="btn local-file">本地上传</a>
+                    <a href="javascript:;" id="img-send" class="btn">submit</a>
+                </div>
+                <div id="music-block" class="music-block" data-block>
+                    <input id="music-url" placeholder="贴上你的音乐的地址" type="url" required/>
+                    <a href="javascript:;" class="btn local-file" accept="audio/mp3">本地上传</a>
+                    <a href="javascript:;" id="music-send" class="btn">submit</a>
+                </div>
+            </div>
+            <div>
+                <textarea name="message" placeholder="send message" class="input-message"></textarea>
+            </div>
+            <div>
+                <a href="javascript:;" id="send-message" class="btn btn-primary send-btn">send</a>
+                <span class="send-info">ctrl+enter 发送</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="error-block"></div>
+<div class="loading">
+    <div class="load-content">
+        <div class="spec1"></div>
+        <div class="spec2"></div>
+        <div class="spec3"></div>
+        <div class="spec4"></div>
+        <div class="spec5"></div>
+    </div>
+</div>
+
+<div class="modal">
+    <div id="file-modal" class="file-modal">
+        <div style="overflow: hidden">
+            <span class="close fa fa-close"></span>
+            <label for="file">
+                <span class="fa fa-image select-file"></span>
+            </label>
+            <input type="file" id="file" name="file" style="display: none;"/>
+            <button id="file-upload" disabled>上传</button>
+        </div>
+        <div class="pre-img-block">
+            <img width="200" id="pre-img"/>
+        </div>
+    </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/zoom.js"></script>
+<script src="/js/chat.js"></script>
+</body>
+</html>
